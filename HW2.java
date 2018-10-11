@@ -3,7 +3,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author TODO: please add student ID and name here 
+ * my student ID is B0544136 and my name is 吳哲宇
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -26,8 +27,8 @@ public class HW2 {
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards 所有的牌
-	 * @param nDeck 總共有幾副牌
+	 * @param allCards �������
+	 * @param nDeck 蝮賢��嗾����
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -65,24 +66,47 @@ public class HW2 {
 }
 /**
  * Description: TODO: please add description here
+ * 將每張牌利用ArrayList 定義為數字1~13 和4種花色，並將card實體化
  */
 class Deck{
 	private ArrayList<Card> cards;
 	//TODO: Please implement the constructor (30 points)
+	
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		
+		for(int a= 0; a<nDeck;a++)
+		{
+			for(int i=1; i<= 4;i++){
+				
+				for(int j=1;j<=13;j++ ){
+					
+					Card card = new Card (i,j);
+					cards.add(card);
+					
+				}
+			}
+		}
+		
+		
+		 
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
 		//Card card=new Card(1,1); ->means new card as clubs ace
 		//cards.add(card);
 		//Sample code end
+		
 
 	}	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
+		
+		for(Card x : cards){
+			x.printCard();
+		}
 
 	}
 	public ArrayList<Card> getAllCards(){
@@ -91,10 +115,16 @@ class Deck{
 }
 /**
  * Description: TODO: please add description here
+ * 取得suit與rank的值，將其print出來
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
+	
 	private int rank; //1~13
+	
+	
+				
+	
 	/**
 	 * @param s suit
 	 * @param r rank
@@ -103,9 +133,11 @@ class Card{
 		suit=s;
 		rank=r;
 	}	
+	
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
+		System.out.println("(" + getSuit() + "," + getRank() + ")");
 
 	}
 	public int getSuit(){
